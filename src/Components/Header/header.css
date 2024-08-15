@@ -1,0 +1,52 @@
+.header{
+    padding: 10px;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+}
+.header.active{
+    background: linear-gradient(231.62deg, #C37EFF -26.53%, #3A0B63 117.16%);
+}
+.logo{
+    display: flex;
+    gap: 15px;
+    color: var(--color-purple);
+}
+.logo-img{
+    height: 32px;
+    width: 32px;
+}
+.logo-title{
+    font-size: 25px;
+    font-weight: 500;
+}
+.sub-title{
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+.loggedIn {
+    color: var(--color-white);
+}
+.actions{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+.login-btn{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-purple);
+    cursor: pointer;
+}
+.user-name{
+    color: var(--color-white);
+}
+.btn{
+    background-color: #399a39;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: var(--color-white);
+    cursor: pointer;
+}
