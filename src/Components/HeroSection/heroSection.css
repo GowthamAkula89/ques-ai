@@ -1,0 +1,30 @@
+.hero-section-container{
+    height: 100vh;
+    background: linear-gradient(231.62deg, #C37EFF -26.53%, #3A0B63 117.16%);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+}
+.hero-section{
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 85px;
+    padding: 10px;
+}
+.hero-text1{
+    font-size: 70.41px;
+    font-weight: 300;
+    line-height: 70.63px;
+    text-align: left;
+}
+.hero-text2{
+    font-family: Poppins;
+    font-size: 30.9px;
+    font-weight: 300;
+    line-height: 40.17px;
+    text-align: left;
+
+}
