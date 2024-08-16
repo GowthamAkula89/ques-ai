@@ -1,0 +1,72 @@
+.login-register{
+    max-width: 445px;
+    width: 100%;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+.container-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+.container-img{
+    height: 100px;
+    width: 100px;
+}
+.welcome-text{
+    width: 245px;
+    font-size: 25px;
+    font-weight: 300;
+    color: var(--color-purple);
+    line-height: 35px;
+}
+.company-name{
+    font-size: 42px;
+}
+.input-field{
+    height: 45px;
+    padding-left: 25px;
+    border-radius: 7.7px;
+    outline: none;
+    border: 1px solid var(--color-gray);
+}
+.submit-btn{
+    background-color: var(--color-purple);
+    color: var(--color-white);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.submit-btn:disabled {
+    cursor: not-allowed;
+}
+
+/* Spinner styling */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
