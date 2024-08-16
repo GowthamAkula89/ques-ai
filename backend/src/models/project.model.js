@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 // Schema for individual files within a project
 const fileSchema = mongoose.Schema({
     fileName: {
@@ -11,25 +12,24 @@ const fileSchema = mongoose.Schema({
         required: true,
         trim: true
     },
+}, { timestamps: true }); 
+
+// Schema for individual projects
+const projectSchema = mongoose.Schema({
+    projectName: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    files: [fileSchema]
 });
 
-const projectSchema = mongoose.Schema({
+const projectsSchema = mongoose.Schema({
     email: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true
+        type: String
     },
-    project: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true
-    },
-    files: [fileSchema],
-    },{ timestamps: true }
-);
+    projects: [projectSchema], 
+}, { timestamps: true }); 
 
-const Project = mongoose.model("Project", projectSchema);
-
+const Project = mongoose.model('Project', projectsSchema);
 module.exports = Project;
