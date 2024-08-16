@@ -4,6 +4,7 @@
     color: var(--color-white);
     display: flex;
     justify-content: center;
+    flex: 1;
 }
 .hero-section{
     max-width: 500px;
