@@ -61,7 +61,7 @@ const LoginOrRegister = () => {
             }
 
             const data = await res.json();
-            enqueueSnackbar(`Successfully ${action}ed`, { variant: "success" });
+            enqueueSnackbar(`Successfully ${action}ed In`, { variant: "success" });
 
             if (action === "Login") {
                 dispatch(setUser(data));
