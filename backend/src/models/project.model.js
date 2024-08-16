@@ -1,13 +1,4 @@
 const mongoose = require('mongoose');
-
-// Helper function to get current IST time
-const getISTTime = () => {
-    const now = new Date();
-    const offsetIST = 5.5 * 60 * 60 * 1000; // IST is UTC +5:30
-    const istTime = new Date(now.getTime() + offsetIST);
-    return istTime;
-};
-
 // Schema for individual files within a project
 const fileSchema = mongoose.Schema({
     fileName: {
