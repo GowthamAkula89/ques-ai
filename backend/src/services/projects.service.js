@@ -1,5 +1,4 @@
 const httpStatus = require("http-status");
-const mongoose = require("mongoose");
 const Project = require("../models/project.model")
 
 const addProject = async (projectDetails) => {
@@ -49,7 +48,7 @@ const updateProjectFiles = async (email, projectId, projectFile) => {
     return project;
 }
 
-const updateFile = async (projectId, fileId, updateFileData) => {
+const updateFile = async (email, projectId, fileId, updateFileData) => {
     try {
         const project = await Project.findOne({ "projects._id": projectId });
         if (!project) {

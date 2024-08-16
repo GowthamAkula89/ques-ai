@@ -19,7 +19,7 @@ const updateProjectFiles = async(req, res) => {
 const updateProjectFile = async(req,res) => {
     const{projectId, fileId} = req.params;
     const {email, file} = req.body;
-    const project = await projectsServices.updateFile(projectId, fileId, file);
+    const project = await projectsServices.updateFile(email, projectId, fileId, file);
     res.send(project);
 }
 const deleteFile = async(req,res) => {
