@@ -1,9 +1,18 @@
 import React from "react";
 import "./header.css";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { setAction } from "../Redux/Slices/user.slice";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
     const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+    const user = useSelector((state) => state.user.user);
+    console.log(user)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const handleClick = (action) => {
+        dispatch(setAction(action))
+        navigate(`/${action.toLowerCase()}`)
+    }
     return(
         <div className={`header ${isLoggedIn ? "active" : ""}`}>
             <div className="logo">
@@ -12,14 +21,19 @@ const Header = () => {
             </div>
             {!isLoggedIn && 
                 <div className="actions">
-                    <div className="login-btn">Login</div>
-                    <div className="btn">Register</div>
+                    <div className="login-btn" onClick={() => handleClick("Login") }>Login</div>
+                    <div className="btn" onClick={() => handleClick("Register") }>Register</div>
                 </div>
             }
             {isLoggedIn && 
                 <div className="actions">
-                    <div className="user-name">Gowthamk</div>
-                    <div className="btn">LOG OUT</div>
+                    <div className="user-name">{user.user.email}</div>
+                    <div className="btn" onClick={()=>{
+                        localStorage.clear();
+                        navigate("/")
+                        window.location.reload();
+                        }}
+                    >LOG OUT</div>
                 </div>
             }
         </div>
