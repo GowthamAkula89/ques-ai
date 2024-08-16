@@ -36,21 +36,8 @@ const projectSchema = mongoose.Schema({
         trim: true
     },
     files: [fileSchema],
-    createdAtIST: {
-        type: Date,
-        default: getISTTime
-    },
-    updatedAtIST: {
-        type: Date,
-        default: getISTTime
-    }
-});
-
-// Pre-save hook to update the `updatedAtIST` field
-projectSchema.pre('save', function(next) {
-    this.updatedAtIST = getISTTime();
-    next();
-});
+    },{ timestamps: true }
+);
 
 const Project = mongoose.model("Project", projectSchema);
 
