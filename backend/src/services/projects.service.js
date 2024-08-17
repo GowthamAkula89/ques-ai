@@ -26,9 +26,12 @@ const addProject = async (projectDetails) => {
 };
 
 const getProjects = async(email) => {
+    console.log(email);
     const account = await Project.findOne({ email: email });
+    console.log("account",account)
     if (!account) {
-        throw new Error(httpStatus.NOT_FOUND, "User not found");
+        console.log({message: "projects not added"});
+        return [];
     }
     return account.projects;
 }

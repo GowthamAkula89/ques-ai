@@ -1,10 +1,10 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
-const generateToken = (userId, expires, tokenType, secret = process.env.JWT_SECRET) => {
+const generateToken = (email, expires, tokenType, secret = process.env.JWT_SECRET) => {
     //key is not fixed
     const payload = {
-        id: userId,
+        email: email,
         type: tokenType,
         exp: expires,
         iat: Math.floor(Date.now() / 1000), //issued at time
@@ -15,7 +15,7 @@ const generateToken = (userId, expires, tokenType, secret = process.env.JWT_SECR
 
 const generateAuthToken = async (user) => {
     const expires = Math.floor(Date.now()/1000) + process.env.JWT_ACCESS_EXPIRATION_MINUTES * 60;
-    const accessToken = generateToken(user.id, expires, "access");
+    const accessToken = generateToken(user.email, expires, "access");
     return{
         token: accessToken,
         expires: new Date(expires * 1000)
