@@ -13,10 +13,13 @@
     align-items: center;
     gap: 25px;
 }
+
 .container-img{
+
     height: 100px;
     width: 100px;
 }
+
 .welcome-text{
     width: 245px;
     font-size: 25px;
@@ -49,6 +52,7 @@
     font-size: 16px;
     transition: background-color 0.3s ease;
 }
+
 .submit-btn:disabled {
     cursor: not-allowed;
 }

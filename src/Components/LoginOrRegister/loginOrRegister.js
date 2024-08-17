@@ -40,8 +40,13 @@ const LoginOrRegister = () => {
         }
 
         setLoading(true);
-
-        const user = { email, password };
+        let user ={}
+        if(action === "Register"){
+            user = {name : username, email : email, password: password};
+        }else{
+            user = { email :email, password : password };
+        }
+        
         if (action === "Register") {
             user.name = username;
         }
@@ -53,25 +58,29 @@ const LoginOrRegister = () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(user),
             });
-
             if (!res.ok) {
                 throw new Error(`Failed to ${action.toLowerCase()}`);
             }
-
             const data = await res.json();
-            enqueueSnackbar(`Successfully ${action}ed In`, { variant: "success" });
+            enqueueSnackbar(`Successfully ${action}ed ${action === "Login" ? "In":""}`, { variant: "success" });
 
             if (action === "Login") {
+                localStorage.setItem('token', data.token.token);
                 dispatch(setUser(data));
                 dispatch(setIsLoggedIn(true));
                 navigate('/homepage');
             } else {
-                navigate("/login");
+                dispatch(setAction("Login"))
+                navigate('/login');
             }
+            setUsername("");
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
         } catch (err) {
-            enqueueSnackbar(`Something went wrong: ${err.message}`, { variant: "error" });
+            enqueueSnackbar(`Something went wrong `, { variant: "error" });
         } finally {
             setLoading(false);
         }
