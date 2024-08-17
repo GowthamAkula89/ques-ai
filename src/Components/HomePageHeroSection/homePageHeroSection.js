@@ -4,8 +4,22 @@ import HeroImg from "../../Utils/hero.png";
 import AddIcon from "../../Utils/Vector.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addProject, setProject } from "../Redux/Slices/projects.slice";
+import { setProjects, setProject } from "../Redux/Slices/projects.slice";
 import ProjectModal from "../ProjectModal/projectModal";
+    
+const formatTime = (time) => {
+    const options = {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+    };
+    console.log("Time", time)
+    const formattedTime = new Date(time).toLocaleString('en-IN', options);
+    return formattedTime;
+}
 
 export const ProjectCard = ({ project }) => (
     <div className="project-card">
@@ -13,9 +27,9 @@ export const ProjectCard = ({ project }) => (
         <div className="project-details">
             <div>
                 <div className="project-name">{project.projectName}</div>
-                <div>{`${project.files.length} Files`}</div>
+                <div>{`${project.files.length} Episodes`}</div>
             </div>
-            <div className="project-update">Last edited just now</div>
+            <div className="project-update">Last edited {formatTime(project.updatedAt)}</div>
         </div>
     </div>
 );
@@ -25,19 +39,40 @@ const HomePageHeroSection = () => {
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
-
+    const api = process.env.REACT_APP_QUES_AI_API;
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Simulate fetching data here. Replace with actual data fetching logic.
-                setLoading(false); // Set loading to false after data is fetched
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    console.error('No token found');
+                    setLoading(false);
+                    return;
+                }
+    
+                const response = await fetch(`${api}/project/`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`, 
+                    },
+                });
+    
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                }
+    
+                const data = await response.json();
+                dispatch(setProjects(data.projects));
             } catch (error) {
-                console.error("Error fetching projects:", error);
-                setLoading(false); // Set loading to false in case of error
+                console.error('Error fetching projects:', error);
+            } finally {
+                setLoading(false);
             }
         };
+    
         fetchData();
-    }, []); 
+    }, [dispatch, api]);
 
     const handleShowModal = () => {
         setShowModal(true);
@@ -50,7 +85,7 @@ const HomePageHeroSection = () => {
     if (loading) {
         return <div className="loading-message">Loading...</div>; 
     }
-
+    console.log("Project details", projects)
     return (
         <>
             {projects.length === 0 ? (

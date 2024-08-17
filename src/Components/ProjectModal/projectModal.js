@@ -1,10 +1,14 @@
 import React, {useState} from "react";
 import "./projectModal.css";
 import Modal from "react-modal";
+import { addProject, setProjects } from "../Redux/Slices/projects.slice";
+import { useDispatch } from "react-redux";
 
-const ProjectModal = ({showModal, setShowModal, setProjects}) => {
+const ProjectModal = ({showModal, setShowModal}) => {
     const [projectName, setProjectName] = useState("");
     const [loading, setLoading] = useState(false);
+    const api = process.env.REACT_APP_QUES_AI_API;
+    const dispatch = useDispatch();
     const handleCancel = () => {
         setShowModal(false);
         setProjectName(""); 
@@ -17,23 +21,35 @@ const ProjectModal = ({showModal, setShowModal, setProjects}) => {
     const handleSubmit = async () => {
         setLoading(true);
         try {
-            // const response = await fetch(config.endpoint, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({ projectName })
-            // });
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.error('No token found');
+                setLoading(false);
+                return;
+            }
+            const projectData = {
+                "projectName" : projectName
+            }
+            
+            const response = await fetch(`${api}/project/`,{
+                method:"POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`, 
+                },
+                body: JSON.stringify(projectData)
+            })
 
-            // if (response.ok) {
-            //     const data = await response.json();
-            //     console.log('Project created:', data);
-            //     setProjects(prevProjects => [...prevProjects, data]);
-            //     setShowModal(false);
-            //     setProjectName("");
-            // } else {
-            //     console.error('Failed to create project:', response.statusText);
-            // }
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Project created:', data);
+                // setProjects(prevProjects => [...prevProjects, data]);
+                dispatch(setProjects(data.projects))
+                setShowModal(false);
+                setProjectName("");
+            } else {
+                console.error('Failed to create project:', response.statusText);
+            }
         } catch (error) {
             console.error('Error:', error);
         } finally {

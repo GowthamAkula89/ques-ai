@@ -63,29 +63,29 @@
     align-items: center;
 }
 .project-heading{
-    font-size: 73.41px;
+    font-size: 48px;
     font-weight: 700;
-    line-height: 86.03px;
     text-align: left;
     color: var(--color-purple);
 }
 .add-icon2{
-    height: 36px;
-    width: 36px;
+    height: 32px;
+    width: 32px;
 }
 .create-btn-text2{
-    font-size: 30.55px;
+    font-size: 25.55px;
     font-weight: 600;
     color: var(--color-white);
 }
 .project-card{
-    width: 382.02px;
-    height: 135.34px;
+    max-width: 452px;
+    width: 100%;
+    height: 132px;
     border-radius: 26.17px;
     border: 1.19px solid var(--color-gray);
     box-shadow: 1.19px 2.38px 5.95px 0px #0000000F;
     display: flex;
-    gap: 15px;
+    gap: 30px;
     align-items: center;
     padding: 7px;
 }
@@ -94,7 +94,7 @@
     height: 115.4px;
     border-radius: 18.21px;
     font-family: Roboto;
-    font-size: 77.95px;
+    font-size: 65px;
     font-weight: 700;
     line-height: 91.35px;
     text-align: left;
@@ -109,6 +109,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 75%;
+    text-align: left;
+    color: #000000;
 }
 .project-container{
     text-decoration: none;
@@ -128,7 +130,7 @@
 .projects-list{
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 15px;
 }
 .loading-message{
     font-size: 45px;
@@ -144,9 +146,9 @@
     .projects-container{
         margin: 15px;
     }
-    .project-card {
+    /* .project-card {
         width: 326.02px;
-    }
+    } */
 }
 @media screen and (max-width: 785px){
     .create-btn-text2 {
