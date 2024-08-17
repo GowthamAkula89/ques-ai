@@ -11,9 +11,10 @@ const authenticateJWT = async(req, res, next) => {
     try{
         const verified = jwt.verify(token, process.env.JWT_SECRET);
         req.user = verified;
-        console.log("verified", req.user)
+        // console.log("verified", req.user)
         next()
     }catch(err){
+      console.log(err)
         res.status(400).json({ message: 'Invalid Token' });
     }
     

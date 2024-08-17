@@ -1,24 +1,21 @@
 const httpStatus = require("http-status");
 const Project = require("../models/project.model")
 
-const addProject = async (projectDetails) => {
-    const { email, projectName } = projectDetails;
+const addProject = async (email, projectDetails) => {
     let project = await Project.findOne({ email: email });
 
     if (!project) {
         try {
             project = await Project.create({
                 email: email,
-                projects: [{
-                    projectName: projectName
-                }]
+                projects: [projectDetails]
             });
         } catch (err) {
             console.log(err);
             throw new Error(httpStatus.INTERNAL_SERVER_ERROR, "User project creation failed");
         }
     } else {
-        project.projects.push({ projectName: projectName });
+        project.projects.push(projectDetails);
         await project.save();
     }
 

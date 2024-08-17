@@ -22,7 +22,7 @@ const projectSchema = mongoose.Schema({
         trim: true
     },
     files: [fileSchema]
-});
+}, { timestamps: true });
 
 const projectsSchema = mongoose.Schema({
     email: {

@@ -6,7 +6,8 @@ const getProjects = async (req, res) => {
 }
 
 const addProject = async(req,res)=>{
-    const project = await projectsServices.addProject(req.body);
+    const {email} = req.user;
+    const project = await projectsServices.addProject(email, req.body);
     res.send(project);
 }
 
