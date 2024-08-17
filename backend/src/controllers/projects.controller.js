@@ -13,21 +13,22 @@ const addProject = async(req,res)=>{
 
 const updateProjectFiles = async(req, res) => {
     const { projectId } = req.params;
-    const {email, fileData} = req.body;
-    const project = await projectsServices.updateProjectFiles(email, projectId, fileData);
+    const {email} = req.user;
+    console.log("Email", email)
+    const project = await projectsServices.updateProjectFiles(email, projectId, req.body);
     res.send(project);
 }
 
 const updateProjectFile = async(req,res) => {
     const{projectId, fileId} = req.params;
-    const {email, file} = req.body;
-    const project = await projectsServices.updateFile(email, projectId, fileId, file);
+    const {email} = req.user;
+    const project = await projectsServices.updateFile(email, projectId, fileId, req.body);
     res.send(project);
 }
 
 const deleteFile = async(req,res) => {
     const{projectId, fileId} = req.params;
-    const {email} = req.body;
+    const {email} = req.user;
     const project = await projectsServices.deleteFile(email, projectId, fileId);
     res.send(project);
 }

@@ -3,7 +3,7 @@ const Project = require("../models/project.model")
 
 const addProject = async (email, projectDetails) => {
     let project = await Project.findOne({ email: email });
-
+    console.log("Project", project)
     if (!project) {
         try {
             project = await Project.create({
@@ -18,7 +18,6 @@ const addProject = async (email, projectDetails) => {
         project.projects.push(projectDetails);
         await project.save();
     }
-
     return project;
 };
 
