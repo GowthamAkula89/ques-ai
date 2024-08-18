@@ -18,11 +18,11 @@ export function ListItemCard({ item, projectId, isRequired, index }) {
         const url = `${api}/project/${projectId}/files/${fileId}`;
         try {
             const token = localStorage.getItem('token');
-                if (!token) {
-                    enqueueSnakbar("Login Expired, Login Again", {varient:"error"})
-                    setIsLoading(false);
-                    return;
-                }
+            if (!token) {
+                enqueueSnakbar("Login Expired, Login Again", {varient:"error"})
+                setIsLoading(false);
+                return;
+            }
             const response = await fetch(url, { 
                 method: 'DELETE',
                 headers: {
@@ -50,8 +50,9 @@ export function ListItemCard({ item, projectId, isRequired, index }) {
     };
 
     const handleEditDescription = (file) => {
+        console.log("Edit button", file)
         dispatch(setFile(file));
-        navigate("/project/file/edit")
+        navigate(`/${projectId}/files/${file._id}/edit`)
     }
     return (
         <>
@@ -61,7 +62,7 @@ export function ListItemCard({ item, projectId, isRequired, index }) {
                 <div className="item-content2">{formatDate(item.updatedAt)}</div>
                 <div className={`item-content`}><span className="status">Done</span></div>
                 <div className="item-content">
-                    <div className="edit-btn" onClick={() => handleEditDescription(item)}>Edit</div>
+                    <div className="edit-btn" onClick={() => handleEditDescription(item)}>View</div>
                     <div className="delete-btn" onClick={() => handleDeleteFile(item._id)}>
                         {isLoading ? "Deleting..." : "Delete"}
                     </div>

@@ -3,12 +3,12 @@ import './App.css';
 import { Provider } from 'react-redux';
 import store from './Components/Redux/store';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import WelcomePage from './Pages/welcomePage';
 import LoginOrRegisterPage from './Pages/loginOrRegisterPage';
 import { SnackbarProvider } from 'notistack';
 import HomePage from './Pages/homePage';
 import ProjectPage from './Pages/projectPage';
+import FileEditPage from './Pages/fileEditPage';
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
               <Route path='/register' element = {<LoginOrRegisterPage/>}/>
               <Route path='/homepage' element = {<HomePage/>}/>
               <Route path="/project" element = {<ProjectPage isProjectsPage={true}/>}/>
+              <Route path="/:projectId/files/:fileId/edit" element= {<FileEditPage isProjectsPage={true}/>}/>
             </Routes>
           </Router>
         </Provider>

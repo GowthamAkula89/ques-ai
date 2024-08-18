@@ -12,8 +12,9 @@
     align-items: center;
 }
 .home-img{
-    width: 25px;
-    height: 17px;
+    width: 21px;
+    height: 21px;
+    color: #999999;
 }
 .nav-text{
     font-size: 25px;
@@ -77,6 +78,8 @@
     padding: 32px;
     border: 1.33px solid #C7C7C7;
     border-radius: 9px;
+    height: 60%;
+    overflow: auto;
 }
 .uploads-heading{
     font-size: 25.7px;

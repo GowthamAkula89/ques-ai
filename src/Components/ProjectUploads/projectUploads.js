@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./uploads.css";
 import youtubeImg from "../../Utils/youtube.png";
 import rssImg from "../../Utils/rss.png";
-import homeIcon from "../../Utils/home.png"
+import { GoHome } from "react-icons/go";
 import { useSelector } from "react-redux";
 import UploadModal from "../UploadModal/uploadModal";
 import { ListItemCard } from "../ListItemCard/listItemCard";
@@ -42,7 +42,7 @@ const Uploads = () => {
         <>
             <div className="uploads-container">
                 <div className="navgation">
-                    <img src={homeIcon} alt="home-icon" className="home-img"/>
+                <GoHome className="home-img"/>
                     <div className="nav-text"> / HomePage / {project.projectName} / <span style={{color:"#7E22CE", fontWeight:"600"}}>Add your podcast</span></div>
                 </div>
                 <div className="uploads-heading">Add Podcast</div>
