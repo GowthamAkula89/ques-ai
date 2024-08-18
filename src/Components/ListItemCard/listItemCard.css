@@ -1,0 +1,59 @@
+.item-card{
+    display: flex;
+    height: 68px;
+    max-width: 1120px;
+}
+.content-slno{
+    max-width: 70px;
+    width: 100%;
+    font-size: 21.33px;
+    font-weight: 700;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    color: #646464;
+}
+
+.item-content{
+    max-width: 245px;
+    width: 100%;
+    font-size: 21.33px;
+    font-weight: 700;
+    line-height: 33.06px;
+    display: flex;
+    align-items: center;
+    color: #646464;
+}
+.item-content2{
+    max-width: 345px;
+    width: 100%;
+    font-size: 21.33px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    color: #646464;
+}
+.status{
+    background-color: #DFBAFF;
+    padding: 0px 15px;
+    border-radius: 18px;
+}
+.edit-btn{
+    border: 1px solid var(--color-black);
+    border-radius: 5px 0 0 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+.delete-btn{
+    border: 1px solid var(--color-black);
+    padding: 5px;
+    border-radius: 0 5px 5px 0;
+    color: rgb(234, 50, 50);
+    cursor: pointer;
+}
+@media screen and (max-width: 885px) {
+    .item-content{
+        font-size: 15px;
+        line-height: 21px;
+    }
+}

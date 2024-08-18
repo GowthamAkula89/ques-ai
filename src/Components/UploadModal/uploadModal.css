@@ -1,0 +1,50 @@
+.create-project-modal-content {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    overflow-y: auto;
+    border: none;
+    outline: none;
+    box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.5);
+    gap: 15px;
+    box-sizing: border-box;
+}
+.create-project-content-input{
+    width: 100%;
+    height: 44px;
+    outline: none;
+}
+.btns{
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+.cancel-btn{
+    color: rgb(236, 45, 45);
+    cursor: pointer;
+}
+.modal-heading{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 38px;
+    font-weight: 600;
+    text-align: left;
+
+}
+.selected-type-img{
+    height: 72px;
+    width: 72px;
+}
+@media screen and (max-width: 789px) {
+    .modal-heading{
+        font-size: 25px;
+    }
+}

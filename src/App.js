@@ -3,10 +3,13 @@ import './App.css';
 import { Provider } from 'react-redux';
 import store from './Components/Redux/store';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import WelcomePage from './Pages/welcomePage';
 import LoginOrRegisterPage from './Pages/loginOrRegisterPage';
 import { SnackbarProvider } from 'notistack';
 import HomePage from './Pages/homePage';
+import ProjectPage from './Pages/projectPage';
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +21,7 @@ function App() {
               <Route path='/login' element = {<LoginOrRegisterPage/>}/>
               <Route path='/register' element = {<LoginOrRegisterPage/>}/>
               <Route path='/homepage' element = {<HomePage/>}/>
+              <Route path="/project" element = {<ProjectPage isProjectsPage={true}/>}/>
             </Routes>
           </Router>
         </Provider>
