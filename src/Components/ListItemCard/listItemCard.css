@@ -13,7 +13,9 @@
     align-items: center;
     color: #646464;
 }
-
+.name-container{
+    justify-content: center;
+}
 .item-content{
     max-width: 245px;
     width: 100%;
@@ -51,9 +53,15 @@
     color: rgb(234, 50, 50);
     cursor: pointer;
 }
+.cell-size{
+    font-size: 20px;
+}
 @media screen and (max-width: 885px) {
     .item-content{
-        font-size: 15px;
+        font-size: 12px;
         line-height: 21px;
+    }
+    .cell-size{
+        font-size: 12px;
     }
 }

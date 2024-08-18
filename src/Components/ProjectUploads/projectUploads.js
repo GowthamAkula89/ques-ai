@@ -6,6 +6,7 @@ import { GoHome } from "react-icons/go";
 import { useSelector } from "react-redux";
 import UploadModal from "../UploadModal/uploadModal";
 import { ListItemCard } from "../ListItemCard/listItemCard";
+import { useNavigate } from "react-router-dom";
 
 const uploadTypes = [
     { imgSrc: rssImg, name: "RSS Feed" },
@@ -29,6 +30,7 @@ const Uploads = () => {
     const project = useSelector(state => state.projects.project)
     const [selectedType, setSelectedType] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
 
     const handleUpload = (item) => {
         setShowModal(true);
@@ -43,7 +45,7 @@ const Uploads = () => {
             <div className="uploads-container">
                 <div className="navgation">
                 <GoHome className="home-img"/>
-                    <div className="nav-text"> / HomePage / {project.projectName} / <span style={{color:"#7E22CE", fontWeight:"600"}}>Add your podcast</span></div>
+                    <div className="nav-text"> / <span onClick={() => navigate("/homepage")}>HomePage</span> / <span onClick={()=> navigate("/project")}>{project.projectName}</span> / <span style={{color:"#7E22CE", fontWeight:"600"}}>Add your podcast</span></div>
                 </div>
                 <div className="uploads-heading">Add Podcast</div>
                 <div className="upload-types">
@@ -58,11 +60,11 @@ const Uploads = () => {
                         <div className="uploads-heading">Your Files</div>
                         <div className="uploads-list">
                             <div className="uploads-list-headings">
-                                <div className={`item-slno name-container`}>No.</div>
-                                <div className={`item-container2 name-container`}>Name</div>
-                                <div className="item-container2">Upload Date & Time</div>
-                                <div className="item-container">Status</div>
-                                <div className="item-container">Actions</div>
+                                <div className={`item-slno name-container cell-size`}>No.</div>
+                                <div className={`item-container2 name-container cell-size`}>Name</div>
+                                <div className="item-container2 cell-size">Upload Date & Time</div>
+                                <div className="item-container cell-size">Status</div>
+                                <div className="item-container cell-size">Actions</div>
                             </div>
                             <hr style={{ maxWidth: "1120px" }}></hr>
                             {project.files.map((file, index) => (

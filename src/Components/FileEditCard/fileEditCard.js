@@ -71,7 +71,7 @@ const FileEditCard = () => {
         <div className="edit-card-container">
             <div className="navgation">
                 <GoHome className="home-img"/>
-                <div className="nav-text"> / HomePage / {project.projectName} / <span style={{color:"#7E22CE", fontWeight:"600"}}>{file.fileName}</span></div>
+                <div className="nav-text"> / <span onClick={() => navigate("/homepage")}>HomePage</span> / <span onClick={()=> navigate("/project")}>{project.projectName}</span> / <span style={{color:"#7E22CE", fontWeight:"600"}}>{file.fileName}</span></div>
             </div>
             <div className="edit-card-header">
                 <div className="edit-card-nav-title">

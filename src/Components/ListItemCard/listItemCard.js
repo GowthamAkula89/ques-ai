@@ -57,11 +57,11 @@ export function ListItemCard({ item, projectId, isRequired, index }) {
     return (
         <>
             <div className="item-card">
-                <div className={`content-slno name-container`} style={{ justifyContent: "start" }}>{index+1}</div>
-                <div className={`item-content2 name-container`}>{item.fileName}</div>
-                <div className="item-content2">{formatDate(item.updatedAt)}</div>
-                <div className={`item-content`}><span className="status">Done</span></div>
-                <div className="item-content">
+                <div className={`content-slno name-container cell-size`}>{index+1}</div>
+                <div className={`item-content2 name-container cell-size`}>{item.fileName}</div>
+                <div className="item-content2 cell-size">{formatDate(item.updatedAt)}</div>
+                <div className={`item-content cell-size`}><span className="status">Done</span></div>
+                <div className="item-content cell-size">
                     <div className="edit-btn" onClick={() => handleEditDescription(item)}>View</div>
                     <div className="delete-btn" onClick={() => handleDeleteFile(item._id)}>
                         {isLoading ? "Deleting..." : "Delete"}
