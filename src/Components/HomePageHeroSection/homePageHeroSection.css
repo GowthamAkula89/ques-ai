@@ -5,6 +5,16 @@
     gap: 15px;
     margin: 50px 180px;
 }
+.page-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.hero-header{
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+}
 .hero-heading{
     font-size: 60px;
     font-weight: 700;
@@ -91,7 +101,6 @@
 }
 .project-card:hover{
     transform: scale(1.05);
-    background-color: #2ecc71;
 }
 .project-title{
     width: 125.4px;

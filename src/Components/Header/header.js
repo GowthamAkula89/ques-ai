@@ -15,7 +15,7 @@ const Header = () => {
     }
     return(
         <div className={`header ${isLoggedIn ? "active" : ""}`}>
-            <div className="logo">
+            <div className="logo" onClick={() => navigate('/homepage')} style={{cursor:"pointer"}}>
                 <img src={isLoggedIn ? "header-logo.png": "Logo.png"} alt="company-logo" className="logo-img"/>
                 <div className={`logo-title ${isLoggedIn ? "loggedIn" : ""}`}><span className={`sub-title`}>Ques</span>.AI</div>
             </div>
@@ -28,12 +28,6 @@ const Header = () => {
             {isLoggedIn && 
                 <div className="actions">
                     <div className="user-name">{user.user.name}</div>
-                    <div className="btn" onClick={()=>{
-                        localStorage.clear();
-                        navigate("/")
-                        window.location.reload();
-                        }}
-                    >LOG OUT</div>
                 </div>
             }
         </div>

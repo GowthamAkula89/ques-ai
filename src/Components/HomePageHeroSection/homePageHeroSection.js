@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setProjects, setProject } from "../Redux/Slices/projects.slice";
 import ProjectModal from "../ProjectModal/projectModal";
+import AccountSetting from "../AccountSetting/accountSetting";
+import Logo from "../Logo/logo";
     
 const formatTime = (time) => {
     const options = {
@@ -90,6 +92,10 @@ const HomePageHeroSection = () => {
         <>
             {account.length === 0 ? (
                 <div className="hero-container">
+                    <div className="hero-header">
+                        <Logo/>
+                        <AccountSetting/>
+                    </div>
                     <div className="hero-heading">Create a New Project</div>
                     <img className="hero-img" src={HeroImg} alt="Hero" />
                     <div className="hero-content">
@@ -102,6 +108,10 @@ const HomePageHeroSection = () => {
                 </div>
             ) : (
                 <div className="projects-container">
+                    <div className="page-header">
+                        <Logo/>
+                        <AccountSetting/>
+                    </div>
                     <div className="projects-header">
                         <div className="project-heading">Projects</div>
                         <div className="create-btn" onClick={handleShowModal}>

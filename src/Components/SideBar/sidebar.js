@@ -2,7 +2,6 @@ import React from "react";
 import "./sideBar.css";
 import { Link } from "react-router-dom";
 import { MdOutlineModeEdit } from "react-icons/md";
-import SettingIcon from "../../Utils/settingIcon.png";
 import { GoCopy } from "react-icons/go";
 import { RiVipDiamondLine } from "react-icons/ri";
 import { FiPlus } from "react-icons/fi";
@@ -11,6 +10,7 @@ const SideBar = ({isProjectsPage, isConfigurationPage, isSettingsPage}) => {
     return(
         <div className="side-bar-container">
             <div className="side-bar">
+            
             <div className="menu-list">
                 <Link to="/project" className="project-container">
                     <div className={`menu-item ${isProjectsPage?"projects":""}`}>

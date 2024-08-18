@@ -8,6 +8,8 @@ import UploadModal from "../UploadModal/uploadModal";
 import { ListItemCard } from "../ListItemCard/listItemCard";
 import { useNavigate } from "react-router-dom";
 import UploadImg from "../../Utils/ic_upload.png"
+import AccountSetting from "../AccountSetting/accountSetting";
+
 const uploadTypes = [
     { imgSrc: rssImg, name: "RSS Feed" },
     { imgSrc: youtubeImg, name: "Youtube Video" },
@@ -44,9 +46,12 @@ const Uploads = () => {
     return (
         <>
             <div className="uploads-container">
-                <div className="navgation">
-                <GoHome className="home-img"/>
-                    <div className="nav-text"> / <span onClick={() => navigate("/homepage")}>HomePage</span> / <span onClick={()=> navigate("/project")}>{project.projectName}</span> / <span style={{color:"#7E22CE", fontWeight:"600"}}>Add your podcast</span></div>
+                <div className="nav-header">
+                    <div className="navgation">
+                        <GoHome className="home-img"/>
+                        <div className="nav-text"> / <span onClick={() => navigate("/homepage")}>HomePage</span> / <span onClick={()=> navigate("/project")}>{project.projectName}</span> / <span style={{color:"#7E22CE", fontWeight:"600"}}>Add your podcast</span></div>
+                    </div>
+                    <AccountSetting/>
                 </div>
                 <div className="uploads-heading">Add Podcast</div>
                 <div className="upload-types">

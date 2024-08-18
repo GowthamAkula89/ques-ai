@@ -5,6 +5,7 @@ import { setIsLoggedIn, setUser } from "../Redux/Slices/user.slice";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import ProfileImg from "../../Utils/profile.png"
+import AccountSetting from "../AccountSetting/accountSetting";
 
 const About = () => {
     const user = useSelector(state => state.user.user);
@@ -55,7 +56,11 @@ const About = () => {
 
     return (
         <div className="about-container">
-            <div className="card-heading">Account Settings</div>
+            <div className="nav-header">
+                <div className="card-heading">Account Settings</div>
+                <AccountSetting/>
+            </div>
+            
             {isLoggedIn ? (
                 <>
                 <img src={ProfileImg} alt="profile_img" className="profile-img"/>

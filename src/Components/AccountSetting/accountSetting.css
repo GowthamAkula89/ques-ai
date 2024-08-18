@@ -1,0 +1,9 @@
+.account-setting{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+.logout-icon{
+    fill: red;
+}

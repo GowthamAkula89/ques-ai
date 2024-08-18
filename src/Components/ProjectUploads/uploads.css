@@ -11,6 +11,10 @@
     gap: 5px;
     align-items: center;
 }
+.nav-header{
+    display: flex;
+    justify-content: space-between;
+}
 .home-img{
     width: 21px;
     height: 21px;
