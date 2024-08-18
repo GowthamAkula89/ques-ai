@@ -22,7 +22,15 @@ const loginUserWithEmailAndPassword = async (email, password) => {
     return user;
 }
 
+const updateUsername = async(updatedName, email) => {
+    const user = await User.findOne({email:email});;
+    user.name = updatedName;
+    await user.save();
+    return user;
+}
+
 module.exports = {
     createUser,
-    loginUserWithEmailAndPassword
+    loginUserWithEmailAndPassword,
+    updateUsername
 }
