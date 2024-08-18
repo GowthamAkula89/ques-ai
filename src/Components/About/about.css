@@ -1,0 +1,48 @@
+.about-container{
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.card-heading{
+    font-size: 40px;
+    font-weight: 600;
+    text-align: left;
+    color: var(--color-black);
+}
+.profile-img{
+    width: 175px;
+    height: 175px;
+}
+.accout-details{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+.input-field-data{
+    width: 345px;
+    height: 45px;
+    border-radius: 5px;
+    outline: none;
+}
+.field-name{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+
+}
+.btns-container{
+    display: flex;
+    gap: 15px;
+}
+.logout-btn{
+    border: 1px solid rgb(239, 46, 46);
+    color: rgb(239, 46, 46);
+    border-radius: 5px;
+}
