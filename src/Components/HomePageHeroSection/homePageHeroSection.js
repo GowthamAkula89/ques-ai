@@ -97,7 +97,7 @@ const HomePageHeroSection = () => {
                         <AccountSetting/>
                     </div>
                     <div className="hero-heading">Create a New Project</div>
-                    <img className="hero-img" src={HeroImg} alt="Hero" />
+                    <img src={HeroImg} alt="Hero"  className="hero-img"/>
                     <div className="hero-content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.
                     </div>
