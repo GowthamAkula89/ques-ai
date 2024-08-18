@@ -7,10 +7,11 @@ import { useSelector } from "react-redux";
 import UploadModal from "../UploadModal/uploadModal";
 import { ListItemCard } from "../ListItemCard/listItemCard";
 import { useNavigate } from "react-router-dom";
-
+import UploadImg from "../../Utils/ic_upload.png"
 const uploadTypes = [
     { imgSrc: rssImg, name: "RSS Feed" },
-    { imgSrc: youtubeImg, name: "Youtube Video" }
+    { imgSrc: youtubeImg, name: "Youtube Video" },
+    {imgSrc:UploadImg, name: "Upload Files"}
 ];
 
 export function VideoTypeCard({ item }) {
