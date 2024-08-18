@@ -49,30 +49,31 @@ const updateProjectFiles = async (email, projectId, projectFile) => {
 
 const updateFile = async (email, projectId, fileId, updateFileData) => {
     try {
-        const project = await Project.findOne({ "projects._id": projectId });
+        const account = await Project.findOne({ email: email });
+        if (!account) {
+            throw new Error("User not found");
+        }
+        const project = account.projects.id(projectId);
         if (!project) {
-            throw new Error(httpStatus.NOT_FOUND, "No such project exists");
+            throw new Error("No such project exists");
         }
 
-        const projectDoc = project.projects.id(projectId);
-        if (!projectDoc) {
-            throw new Error(httpStatus.NOT_FOUND, "No such project exists");
-        }
-
-        const file = projectDoc.files.id(fileId);
+        console.log(project)
+        const file = project.files.id(fileId);
         if (!file) {
-            throw new Error(httpStatus.NOT_FOUND, "No such file exists in the project");
+            throw new Error("No such file exists in the project");
         }
-        // Update the file information
         file.fileName = updateFileData.fileName || file.fileName;
         file.fileDescription = updateFileData.fileDescription || file.fileDescription;
-        await project.save();
-        return file;
+    
+        await account.save();
+        return project;
     } catch (error) {
         console.error("Error updating file:", error);
         throw error;
     }
 };
+
 const deleteFile = async (email, projectId, fileId) => {
     const account = await Project.findOne({email : email});
     const project = account.projects.id(projectId);
