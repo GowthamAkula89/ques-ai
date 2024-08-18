@@ -1,0 +1,137 @@
+.uploads-container{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex: 1;
+    background-color: var(--color-white);
+    padding: 25px;
+}
+.navgation{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.home-img{
+    width: 25px;
+    height: 17px;
+}
+.nav-text{
+    font-size: 25px;
+    font-weight: 500;
+    text-align: left;
+    color: #999999;
+
+}
+.uploads-list-headings{
+    background-color: #EDEDED;
+
+}
+.uploads-heading{
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 64.45px;
+    text-align: left;
+    color: var(--color-black);
+}
+.upload-card{
+    width: 415px;
+    height: 150px;
+    border: 1px solid var(--color-gray);
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 25px 25px;
+    cursor: pointer;
+    box-shadow: 1.99px 3.25px 5.51px 1px var(--color-gray);
+}
+.upload-card:hover{
+    transform: scale(1.05);
+}
+.upload-types{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.upload-details{
+    font-size: 26.64px;
+    font-weight: 600;
+    line-height: 33.06px;
+    letter-spacing: 0.1903058886528015px;
+    text-align: left;
+}
+.upload-description{
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+
+}
+.upload-card-img{
+    width: 86.67px;
+    height: 86.67px;
+    border-radius: 16.71px;
+
+}
+.uploads{
+    padding: 32px;
+    border: 1.33px solid #C7C7C7;
+    border-radius: 9px;
+}
+.uploads-heading{
+    font-size: 25.7px;
+    font-weight: 600;
+    text-align: left;
+}
+.uploads-list{
+    max-width: 1120px;
+    border-radius: 22px;
+}
+.uploads-list-headings{
+    display: flex;
+    height: 68px;
+    max-width: 1120px;
+}
+.item-slno {
+    max-width: 70px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.item-container{
+    max-width: 245px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 33.06px;
+    display: flex;
+    align-items: center;
+}
+.item-container2{
+    max-width: 345px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.name-container{
+    justify-content: start;
+    justify-content: center;
+}
+
+@media screen and (max-width: 885px) {
+    .item-container{
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .name-container{
+        padding-left: 15px;
+    }
+    .upload-card{
+        width: 335px;
+    }
+}
