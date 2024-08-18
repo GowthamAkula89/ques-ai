@@ -27,7 +27,7 @@ const Header = () => {
             }
             {isLoggedIn && 
                 <div className="actions">
-                    <div className="user-name">{user.user.email}</div>
+                    <div className="user-name">{user.user.name}</div>
                     <div className="btn" onClick={()=>{
                         localStorage.clear();
                         navigate("/")
