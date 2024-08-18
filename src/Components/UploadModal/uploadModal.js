@@ -6,7 +6,7 @@ import { useSnackbar } from "notistack";
 import { setProject } from "../Redux/Slices/projects.slice";
 
 const UploadModal = ({ showModal, setShowModal, selectedType }) => {
-    const project = useSelector(state => state.projects.project);
+    const project = useSelector(state => state.account.project);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [loading, setLoading] = useState(false);

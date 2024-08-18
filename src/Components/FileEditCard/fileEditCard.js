@@ -11,8 +11,8 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { GoHome } from "react-icons/go";
 
 const FileEditCard = () => {
-    const project = useSelector(state => state.projects.project);
-    const file = useSelector(state => state.projects.file);
+    const project = useSelector(state => state.account.project);
+    const file = useSelector(state => state.account.file);
     const [updatedDescription, setUpdatedDescription] = useState(file.fileDescription);
     const [isEditing, setIsEditing] = useState(false);
     const dispatch = useDispatch();

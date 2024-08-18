@@ -28,7 +28,7 @@ export function VideoTypeCard({ item }) {
 
 
 const Uploads = () => {
-    const project = useSelector(state => state.projects.project)
+    const project = useSelector(state => state.account.project)
     const [selectedType, setSelectedType] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
@@ -40,7 +40,7 @@ const Uploads = () => {
     // if(project){
     //     console.log("Files",project.files)
     // }
-    console.log("Uploads", project)
+    // console.log("Uploads", project)
     return (
         <>
             <div className="uploads-container">

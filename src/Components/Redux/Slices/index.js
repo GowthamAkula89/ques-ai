@@ -2,6 +2,6 @@ import projectsSlice from "./projects.slice"
 import userReducer from "./user.slice"
 const rootReducer = {
     user : userReducer,
-    projects : projectsSlice
+    account : projectsSlice
 }
 export default rootReducer

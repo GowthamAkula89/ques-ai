@@ -35,7 +35,7 @@ export const ProjectCard = ({ project }) => (
 );
 
 const HomePageHeroSection = () => {
-    const projects = useSelector((state) => state.projects.projects);
+    const account = useSelector((state) => state.account.account);
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
@@ -85,10 +85,10 @@ const HomePageHeroSection = () => {
     if (loading) {
         return <div className="loading-message">Loading...</div>; 
     }
-    console.log("Project details", projects)
+
     return (
         <>
-            {projects.length === 0 ? (
+            {account.length === 0 ? (
                 <div className="hero-container">
                     <div className="hero-heading">Create a New Project</div>
                     <img className="hero-img" src={HeroImg} alt="Hero" />
@@ -110,7 +110,7 @@ const HomePageHeroSection = () => {
                         </div>
                     </div>
                     <div className="projects-list">
-                        {projects.map((project) => (
+                        {account.map((project) => (
                             <Link
                                 key={project._id}
                                 to="/project"
