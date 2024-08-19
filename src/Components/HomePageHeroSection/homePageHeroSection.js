@@ -100,7 +100,6 @@ const HomePageHeroSection = () => {
                     <div className="hero-content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.
                     </div>
-                    <img src="/hero.png" alt="img"/>
                     <div className="create-btn" onClick={handleShowModal}>
                         <img src={AddIcon} alt="Add Icon" className="add-icon" />
                         <div className="create-btn-text">Create New Project</div>
