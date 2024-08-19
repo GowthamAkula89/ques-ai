@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./homePageHeroSection.css";
-import HeroImg from "../../Utils/hero.png";
 import AddIcon from "../../Utils/Vector.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -97,7 +96,7 @@ const HomePageHeroSection = () => {
                         <AccountSetting/>
                     </div>
                     <div className="hero-heading">Create a New Project</div>
-                    <img src={HeroImg} alt="Hero"  className="hero-img"/>
+                    <img src="/hero.png" alt="img"  className="hero-img"/>
                     <div className="hero-content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.
                     </div>
