@@ -22,10 +22,10 @@ When you make an HTTP request from a client-side application (such as a web brow
 the browser enforces the same-origin policy. If the server's domain is different from the domain of the 
 client-side application, the browser, by default, blocks the request for security reasons.
 */
-app.use(cors({
-    origin:'https://ques-ai-ag.vercel.app/',
-    methods:['GET','POST','PATCH','PUT','DELETE'],
-    credentials:true
-}));
+// app.use(cors({
+//     origin:'https://ques-ai-ag.vercel.app',
+//     methods:['GET','POST','PATCH','PUT','DELETE'],
+//     credentials:true
+// }));
 app.use("/api", route)
 module.exports = app;
