@@ -1,6 +1,6 @@
 const express = require('express');
 const compression=require("compression");
-// const cors=require("cors");
+const cors=require("cors");
 const helmet=require("helmet");
 const route = require("./routes")
 const app  = express();
@@ -22,8 +22,8 @@ When you make an HTTP request from a client-side application (such as a web brow
 the browser enforces the same-origin policy. If the server's domain is different from the domain of the 
 client-side application, the browser, by default, blocks the request for security reasons.
 */
-// app.use(cors({
-//     "origin": "*",
-// }));
+app.use(cors({
+    origin: '*',
+}));
 app.use("/api", route)
 module.exports = app;
